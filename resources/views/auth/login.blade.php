@@ -12,7 +12,7 @@
             <label class="control-label" for="email">{{ __('Email') }}</label>
             <input class="form-control" id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
             @if ($errors->get('email'))
-                <ul class="text-danger">
+                <ul class="text-danger list-unstyled">
                     @foreach ((array) $errors->get('email') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
@@ -24,7 +24,7 @@
             <label class="control-label" for="password">{{ __('Password') }}</label>
             <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password" />
             @if ($errors->get('password'))
-                <ul class="text-danger">
+                <ul class="text-danger list-unstyled">
                     @foreach ((array) $errors->get('password') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
