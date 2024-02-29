@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="save">
+    <form wire:submit.prevent="save" id="create-task-form">
         <div class="form-group {{ $errors->get('task') ? 'has-error' : '' }}">
             <input class="form-control" wire:model="task" id="task" type="text" name="task" placeholder="Insert task name" required autofocus />
             @if ($errors->get('task'))
