@@ -24,7 +24,7 @@
             <label class="control-label" for="password">{{ __('Password') }}</label>
             <input class="form-control" id="password" type="password" name="password" required autocomplete="current-password" />
             @if ($errors->get('password'))
-                <ul class="text-danger list-unstyledr">
+                <ul class="text-danger list-unstyled">
                     @foreach ((array) $errors->get('password') as $message)
                         <li>{{ $message }}</li>
                     @endforeach
