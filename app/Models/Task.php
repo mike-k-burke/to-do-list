@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Task extends Model
 {
@@ -18,4 +19,13 @@ class Task extends Model
     protected $casts = [
         'completed_at' => 'datetime'
     ];
+
+    public static function boot(): void
+    {
+        parent::boot();
+
+        static::creating(function (self $record) {
+            $record->setAttribute('user_id', Auth::user()->id);
+        });
+    }
 }

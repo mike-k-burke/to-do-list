@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('tasks');
-})->middleware(['auth', 'verified'])->name('home');
+Route::group(['middleware' => 'auth'], function ()
+{
+    Route::get('/', function () {
+        return redirect()->route('tasks.index');
+    })->name('home');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::name('tasks.')->prefix('tasks')->group(function () {
+        Route::post('complete/{task}', [TaskController::class, 'markCompleted'])->name('complete');
+    });
+    Route::resource('tasks', TaskController::class)->only(['index', 'store', 'destroy']);
 });
 
 require __DIR__.'/auth.php';

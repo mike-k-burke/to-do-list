@@ -12,7 +12,6 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles
     </head>
     <body>
         <div class="container">
@@ -37,6 +36,5 @@
         <footer>
             <span class="text-center">Copyright &copy; 2020 All Rights Reserved.</span>
         </footer>
-        @livewireScripts
     </body>
 </html>
