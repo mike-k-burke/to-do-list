@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-4">
             <div>
-                <form method="POST" action="{{ route('tasks.store') }}">
+                <form method="POST" action="{{ route('tasks.store') }}" id="create-task-form">
                     @csrf
 
                     <div class="form-group {{ $errors->get('task') ? 'has-error' : '' }}">

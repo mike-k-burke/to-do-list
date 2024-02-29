@@ -68,3 +68,7 @@ footer span {
 .table .actions form button {
     padding: 0.35rem 0.75rem;
 }
+
+#create-task-form {
+    margin-bottom: 2rem;
+}
