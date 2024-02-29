@@ -6,7 +6,6 @@
                     <th>#</th>
                     <th>Task</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
